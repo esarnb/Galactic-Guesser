@@ -6,8 +6,19 @@ function randomGoal() {
     return (Math.floor(Math.random() * 100) + 21)
 }
 
-function randomValue() {
-    return (Math.floor(Math.random() * 12) + 1)
+function randomValues() {
+    var values = [1], insert=1;
+    for(var i = 1; i < 4; i++) {
+        while(values.includes(insert)) insert = (Math.floor(Math.random() * 12) + 1);
+        values.push(insert);
+    }
+
+    $('.planet').each(function(i, obj) {
+        $(obj).attr("value", values[i]);
+    });
+
+    console.log(values);
+    
 }
 
 function reset() {
@@ -21,17 +32,14 @@ function reset() {
     goal = randomGoal();
 
     //Assign new values to planets
-    $('.planet').each(function () {
-       $(this).attr("value", randomValue());
-    });
-    
+     randomValues();
 }
 
 reset();
 $(document).ready(function() {
     $(".planet").on("click", function(event) {
-        console.log(event);
-        console.log(this);
+        console.log($(this).attr("value"));
+        
     })
 })
 
