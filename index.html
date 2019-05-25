@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Guess the number game</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
     <div class="container">
@@ -20,11 +27,12 @@
         <p id="numberGoal"></p>
 
         <div id="planets">
+            <!-- First planet will always be pluto, where it will always be one point -->
+            <p class = "planet" value="1" position="1"></p>
 
-            <p value="1"></p>
-            <p value="2"></p>
-            <p value="3"></p>
-            <p value="4"></p>
+            <p class = "planet" value="2" position="2"></p>
+            <p class = "planet" value="3" position="3"></p>
+            <p class = "planet" value="4" position="4"></p>
 
         </div>
 
@@ -32,10 +40,15 @@
 
             <p id="wins"></p>
             <p id="losses"></p>
-            
+
         </div>
 
+        <!-- Status is where the game ends with a "You Win!" or "You Lost!" -->
+        <p id="status"></p>
+
         <p id="score">Your total score is: <h3 id="totalScore"></h3></p>
+
+        <script src="assets/javascript/game.js"></script>
     </div>
 </body>
 </html>
