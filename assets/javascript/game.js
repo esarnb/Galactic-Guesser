@@ -1,15 +1,17 @@
 var wins = 0, losses = 0;
 var score = 0, goal = 0;
 var endTheGame = false, pressed;
-/**
- * To get a range: (random() * max-min+1)+min)
- */
-function randomGoal() {
-    return (Math.floor(Math.random() * 102) + 19);
-}
 
-function randomValues() {
-    return (Math.floor(Math.random() * 12) + 1);
+/**
+ * 
+ * @param {string} type : a string determining whether the caller needs
+ * a randomized goal value ("goal") or a planet value ("values"). 
+ * If neither are chosen, the app will log the general error.
+ */
+function randomGoalsAndValues(type) {
+    if (type == "goal") return (Math.floor(Math.random() * 102) + 19)
+    else if (type == "values") return (Math.floor(Math.random() * 12) + 1)
+    else console.log("Did not define a type for function: randomGoalsAndValues");
 }
 
 function addToScore(inputValue) {
@@ -52,12 +54,12 @@ function reset() {
     $("#status").text("");
 
     //Assign new random goal number
-    goal = randomGoal();
+    goal = randomGoalsAndValues("goal");
     $("#numberGoal").text(goal)
 
     //Assign new values to planets
     $('.planet').each(function(i, obj) {
-        $(obj).attr("value", randomValues());
+        $(obj).attr("value", randomGoalsAndValues("values"));
     });
 
     //After all is reset, unlock game
