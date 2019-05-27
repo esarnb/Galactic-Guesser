@@ -1,8 +1,15 @@
 .planet {
+    display: inline-block;
+    position: relative;
     width: 100px;
     height: 100px;
+    overflow: hidden;
     border-radius: 50%;
-    display: inline-block;
-    background-color: aqua;
-    margin: 5px;
+    
+    /* width: auto;
+    height: 100%;
+    margin-left: -50px; */
+
+    /* background-color: aqua; */
+    /* margin: 5px; */
 }

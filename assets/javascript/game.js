@@ -1,6 +1,6 @@
 var wins = 0, losses = 0;
 var score = 0, goal = 0;
-var endTheGame = false, pressed;
+var endTheGame = false;
 
 /**
  * 
@@ -14,6 +14,11 @@ function randomGoalsAndValues(type) {
     else console.log("Did not define a type for function: randomGoalsAndValues");
 }
 
+/**
+ * 
+ * @param {string} inputValue : the number the planet returns upon click,
+ * which gets added to the total score and checked to see if game ends.
+ */
 function addToScore(inputValue) {
     var currentScore = parseInt($("#totalScore").text())
     currentScore += inputValue;
@@ -30,12 +35,65 @@ function addToScore(inputValue) {
         $("#losses").text(`Losses: ${losses}`);
         endGame(" You lose :c ");
     }
+    //Else continue the game as normal
 }
 
+function setupPlanet() {
+    /*
+        Trying to dynamically load image path from assets/images/ into array
+
+        var proxy = "https://cors-anywhere.herokuapp.com/";
+        $.ajax({
+            url : proxy+"assets/images/",
+            success: function (data) {
+                $(data).find("a").attr("href", function (i, val) {
+                    if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                        imgList.push(folder + val);
+                    } 
+                });
+            }
+        });
+    */
+   
+   // "assets/images/main" is all the planets
+    var imgList = [
+        "assets/images/mercury.jpg",
+        "assets/images/venus.jpg",
+        "assets/images/earth.jpg",
+        "assets/images/mars.jpg",
+        "assets/images/jupiter.png",
+        "assets/images/saturn.jpg",
+        "assets/images/uranus.jpg",
+        "assets/images/neptune.jpg"
+    ];
+
+    var usingImg = [], currentImg = imgList[Math.floor(Math.random() * imgList.length)];
+    for (var i = 0; i < 4; i++) {
+        while(usingImg.includes(currentImg)) currentImg = imgList[Math.floor(Math.random() * imgList.length)];
+        usingImg.push(currentImg);
+        console.log(currentImg);
+        
+    }
+
+    //Assign new values and images to planets
+    $('.planet').each(function(i, obj) {
+        $(obj).attr({
+            "value": randomGoalsAndValues("values"),
+            "src": usingImg[i],
+            "title": usingImg[i]
+        });
+    });
+}
+
+/**
+ * 
+ * @param {string} endPrompt : String to display on end of a round
+ */
 function endGame(endPrompt) {
     $("#status").text(endPrompt);
     endTheGame = true;
 
+    //Begin full reset of values and visuals to play for another round
     setTimeout(() => {
         reset();
     }, 5000);
@@ -57,10 +115,8 @@ function reset() {
     goal = randomGoalsAndValues("goal");
     $("#numberGoal").text(goal)
 
-    //Assign new values to planets
-    $('.planet').each(function(i, obj) {
-        $(obj).attr("value", randomGoalsAndValues("values"));
-    });
+    //Give each planet a new image and value
+    setupPlanet();
 
     //After all is reset, unlock game
     endTheGame = false;
@@ -69,12 +125,11 @@ function reset() {
 $(document).ready(function() {
     reset();
     $(".planet").on("click", function(event) {
-        pressed = parseInt($(this).attr("value"));
-        console.log(pressed);
-        
-        //If the game is not done
+
+        //If the game is not done, register clicks
         if (!endTheGame) {
-            addToScore(pressed)
+            //Planet value added to total score
+            addToScore(parseInt($(this).attr("value")));
         }
         
     })
