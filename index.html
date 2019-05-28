@@ -34,17 +34,31 @@
 
         <div id="planets">
             <!-- First planet will always be pluto, where it will always be one point -->
-            <img class = "planet" value="1" position="1">
-            <img class = "planet" value="2" position="2">
-            <img class = "planet" value="3" position="3">
-            <img class = "planet" value="4" position="4">
+            <div class="singlePlanet">
+                <img class = "planet" value="1">
+                <p id="planetText0"></p>
+            </div>
+
+            <div class="singlePlanet">
+                <img class = "planet" value="2">
+                <p id="planetText1"></p>
+            </div>
+
+            <div class="singlePlanet">
+                <img class = "planet" value="3">
+                <p id="planetText2"></p>
+            </div>
+            
+            <div class="singlePlanet">
+                <img class = "planet" value="4">
+                <p id="planetText3"></p>
+            </div>
 
         </div>
 
 
         <!-- Status is where the game ends with a "You Win!" or "You Lost!" -->
-
-        <p id="score">Your total score is: <h3 id="totalScore"></h3></p>
+        <p class="clearfix" id="score">Your total score is: <h3 id="totalScore"></h3></p>
 
         <p id="status"></p>
         

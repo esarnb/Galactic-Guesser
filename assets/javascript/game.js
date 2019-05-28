@@ -57,31 +57,58 @@ function setupPlanet() {
    
    // "assets/images/main" is all the planets
     var imgList = [
-        "assets/images/mercury.jpg",
-        "assets/images/venus.jpg",
-        "assets/images/earth.jpg",
-        "assets/images/mars.jpg",
-        "assets/images/jupiter.png",
-        "assets/images/saturn.jpg",
-        "assets/images/uranus.jpg",
-        "assets/images/neptune.jpg"
+        {
+            name: "Mercury",
+            path: "assets/images/mercury.jpg"
+        },
+        {
+            name: "Venus",
+            path: "assets/images/venus.jpg"
+        },
+        {
+            name: "Earth",
+            path: "assets/images/earth.jpg"
+        },
+        {
+            name: "Mars",
+            path: "assets/images/mars.jpg"
+        },
+        {
+            name: "Jupiter",
+            path: "assets/images/jupiter.png"
+        },
+        {
+            name: "Saturn",
+            path: "assets/images/saturn.jpg"
+        },
+        {
+            name: "Uranus",
+            path: "assets/images/uranus.jpg"
+        },
+        {
+            name: "Neptune",
+            path: "assets/images/neptune.jpg"
+        }
     ];
 
     var usingImg = [], currentImg = imgList[Math.floor(Math.random() * imgList.length)];
     for (var i = 0; i < 4; i++) {
         while(usingImg.includes(currentImg)) currentImg = imgList[Math.floor(Math.random() * imgList.length)];
         usingImg.push(currentImg);
-        console.log(currentImg);
         
     }
-
+    
     //Assign new values and images to planets
     $('.planet').each(function(i, obj) {
         $(obj).attr({
             "value": randomGoalsAndValues("values"),
-            "src": usingImg[i],
-            "title": usingImg[i]
+            "src": usingImg[i].path,
+            "title": usingImg[i].name
         });
+        $(`#planetText${i}`).text(usingImg[i].name)
+
+        console.log(`Title: ${usingImg[i].name} Path: ${usingImg[i].path} #: ${i}`);
+        
     });
 }
 
