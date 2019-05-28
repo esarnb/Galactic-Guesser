@@ -113,7 +113,7 @@ function reset() {
 
     //Assign new random goal number
     goal = randomGoalsAndValues("goal");
-    $("#numberGoal").text(goal)
+    $("#numberGoal").text(`Goal to reach: ${goal}`)
 
     //Give each planet a new image and value
     setupPlanet();
@@ -134,6 +134,3 @@ $(document).ready(function() {
         
     })
 })
-
-
-

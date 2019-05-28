@@ -14,6 +14,7 @@
 
 </head>
 <body>
+    
     <div class="container">
 
         <header>
@@ -24,14 +25,12 @@
             Welcome to Galactic Guesser! 
             How to play: 
               <ul>
-                  <li>Each planet as an assigned random value. (The first one, Pluto, will always be one.)</li>
-                  <li>The goal is to click each planet, which raising your score, and matching it to the goal score.</li>
-                  <li>You will be able to keep selecting planets to raise your score, but do not go over the goal limit!</li>
-                  <li>Going over the goal limit will result in a loss! Try to figure out the shortest amount of clicks to reach the goal!</li>
+                  <li>Each planet as an assigned random value, keep clicking planets to raise your score.</li>
+                  <li>But do not go over the goal limit! Going over the goal limit will result in a loss! 
               </ul>
         </p>
 
-        <p id="numberGoal"></p>
+        <p id="numberGoal">Goal to reach: </p>
 
         <div id="planets">
             <!-- First planet will always be pluto, where it will always be one point -->
@@ -42,18 +41,19 @@
 
         </div>
 
-        <div id="stats">
-
-            <p id="wins">Wins: 0</p>
-            <p id="losses">Losses: 0</p>
-
-        </div>
 
         <!-- Status is where the game ends with a "You Win!" or "You Lost!" -->
-        <p id="status"></p>
 
         <p id="score">Your total score is: <h3 id="totalScore"></h3></p>
 
+        <p id="status"></p>
+        
+        <div id="stats">
+
+                <p id="wins">Wins: 0</p>
+                <p id="losses">Losses: 0</p>
+    
+        </div>
         <script src="assets/javascript/game.js"></script>
     </div>
 </body>
