@@ -28,12 +28,12 @@ function addToScore(inputValue) {
     if (currentScore === goal) {
         wins++;
         $("#wins").text(`Wins: ${wins}`);
-        endGame(" You Win! c: ");
+        endGame(" You won the round! c: ");
     }
     else if (currentScore > goal) {
         losses++;
         $("#losses").text(`Losses: ${losses}`);
-        endGame(" You lose :c ");
+        endGame(" You lost the round. :c ");
     }
     //Else continue the game as normal
 }
@@ -105,10 +105,10 @@ function setupPlanet() {
             "src": usingImg[i].path,
             "title": usingImg[i].name
         });
-        $(`#planetText${i}`).text(usingImg[i].name)
+    });
 
-        console.log(`Title: ${usingImg[i].name} Path: ${usingImg[i].path} #: ${i}`);
-        
+    $('.planetText').each(function(i, obj) {
+        $(obj).text(usingImg[i].name)
     });
 }
 
@@ -117,13 +117,16 @@ function setupPlanet() {
  * @param {string} endPrompt : String to display on end of a round
  */
 function endGame(endPrompt) {
-    $("#status").text(endPrompt);
     endTheGame = true;
-
-    //Begin full reset of values and visuals to play for another round
+    $(".singlePlanet").fadeOut("slow");
     setTimeout(() => {
-        reset();
-    }, 5000);
+        $("#status").text(endPrompt).fadeIn("slow");
+        //Begin full reset of values and visuals to play for another round
+        setTimeout(() => {
+            reset();
+        }, 5000);
+    }, 1000);
+    
 }
 
 /**
@@ -136,14 +139,14 @@ function reset() {
     $("#totalScore").text(score);  
 
     //Reset end-game prompt
-    $("#status").text("");
-
+    $("#status").text("").fadeOut("slow");
     //Assign new random goal number
     goal = randomGoalsAndValues("goal");
-    $("#numberGoal").text(`Goal to reach: ${goal}`)
+    $("#numberGoal").text(goal)
 
     //Give each planet a new image and value
     setupPlanet();
+    $(".singlePlanet").fadeIn("slow");
 
     //After all is reset, unlock game
     endTheGame = false;

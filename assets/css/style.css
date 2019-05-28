@@ -1,9 +1,6 @@
 body {
     background-color: black;
     color: white;
-}
-
-.container {
     text-align: center;
 }
 
@@ -14,7 +11,7 @@ body {
     height: 150px;
     overflow: hidden;
     border-radius: 50%;
-    margin-left: 1%;
+    padding: 0% 5%;
 }
 
 .singlePlanet {
@@ -40,9 +37,48 @@ p#score {
     clear: both;
 }
 
+header {
+    font-family: 'Audiowide', cursive;
+    padding-bottom: 2%;
+    font-size: 200%;
+    color: aqua;
+}
+
+#instructions, li, #reach, #score {
+    font-family: 'Fugaz One', cursive;
+    color: antiquewhite
+}
+
+#reach {
+    margin-top: 2%;
+    margin-bottom: -1.5%;
+}
+
+#totalScore, #numberGoal {
+    font-family: 'Knewave', cursive;
+}
+
+#wins, #losses, #status {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 120%;
+    color: cyan;
+}
+
+#status {
+    font-size: 200%;
+    color: deepskyblue;
+    margin-top: 5%;
+}
+#footer { 
+    position: absolute; 
+    left: 0; right: 0; bottom: 1%; 
+    font-size: 65%;
+}
+a {
+    color: cyan;
+}
 /*
     To Do:
-        Add planet names under/above each
         Add font styling
         Add custom js/css interactive background
         style win/loss prompt and game title
