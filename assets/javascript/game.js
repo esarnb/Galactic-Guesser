@@ -38,24 +38,11 @@ function addToScore(inputValue) {
     //Else continue the game as normal
 }
 
+/**
+ * Function sets a new image to each planet,
+ * and gives a hover title and caption of the planet name
+ */
 function setupPlanet() {
-    /*
-        Trying to dynamically load image path from assets/images/ into array
-
-        var proxy = "https://cors-anywhere.herokuapp.com/";
-        $.ajax({
-            url : proxy+"assets/images/",
-            success: function (data) {
-                $(data).find("a").attr("href", function (i, val) {
-                    if( val.match(/\.(jpe?g|png|gif)$/) ) { 
-                        imgList.push(folder + val);
-                    } 
-                });
-            }
-        });
-    */
-   
-   // "assets/images/main" is all the planets
     var imgList = [
         {
             name: "Mercury",
@@ -153,19 +140,37 @@ function reset() {
 }
 
 $(document).ready(function() {
-    reset();
-    $(".planet").on("click", function(event) {
+  setTimeout(function(){
+    $("#loading").fadeOut("slow"); 
+  },4000)
 
-        //If the game is not done, register clicks
-        if (!endTheGame) {
-            //Planet value added to total score
-            addToScore(parseInt($(this).attr("value")));
-        }
-        
-    })
+  reset();
+
+  $(".planet").on("click", function(event) {
+    //If the game is not done, register clicks
+    if (!endTheGame) {
+        //Planet value added to total score
+        addToScore(parseInt($(this).attr("value")));
+    }
+  })
 })
 
-/* ------------------------------------------------------------------ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------------------------------------------------- */
+/*  ---Random Constellations CodePen by Annaliza Torres on CodePen.io--- */
+/* ----------------------------------------------------------------------*/
 
 /* ---- particles.js config ---- */
 

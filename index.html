@@ -16,12 +16,16 @@
 </head>
 <body>
     <div class="container">
-        <!---->
+        <!--Loading Screen-->
+        <div id="loading"></div>
+
+        <!--Random Constellations CodePen by Annaliza Torres on CodePen.io-->
             <div id="particles-js"></div>
                 <div class="stars"></div>
                 <div class="twinkle"></div>
             <div>
-        <!---->
+        <!------------------------------------------------------------------>
+
         <header>Galactic Guesser</header>
 
         <p id="instructions">
@@ -34,7 +38,9 @@
 
         <p id="reach">Goal to reach: <h3 id="numberGoal"></h3></p>
 
+        <!-- Status is where the game ends with a "You Win!" or "You Lost!" -->
         <p id="status"></p>
+
         <div id="planets">
             <!-- First planet will always be pluto, where it will always be one point -->
             <div class="singlePlanet">
@@ -59,25 +65,23 @@
 
         </div>
 
-
-        <!-- Status is where the game ends with a "You Win!" or "You Lost!" -->
         <p class="clearfix" id="score">Your total score is: <h3 id="totalScore"></h3></p>
-
         
         <div id="stats">
-
-                <p id="wins">Wins: 0</p>
-                <p id="losses">Losses: 0</p>
-    
+            <p id="wins">Wins: 0</p>
+            <p id="losses">Losses: 0</p>
         </div>
+
         <script src="assets/javascript/game.js"></script>
 
     </div>
+
     <p id="footer">*Planets are not pictured to relative scale. 
         Loading Image Source: <a href="https://media0.giphy.com/media/JQpH25Y6TrRQwtF0KY/giphy.gif" target="_blank">Giphy</a>. 
         Planet Pictures: <a href="https://images.nasa.gov/" target="_blank">NASA</a>. 
         Fonts: <a href="https://fonts.google.com/?selection.family=Audiowide|Berkshire+Swash|Fugaz+One|Knewave" target="_blank">Google Fonts</a>. 
         Dynamic Background: <a href="https://codepen.io/aptorres27/pen/mPGZPp" target="_blank">Annaliza Torres on codepen.io</a>
     </p>
+
 </body>
 </html>
