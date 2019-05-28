@@ -23,10 +23,6 @@ body {
     display: inline-block;
 }
 
-img, .singlePlanet, .planet {
-    background-color: black;
-}
-
 .container, #planets, #stats, #numberGoal {
     margin: 2% 0%;
 }
