@@ -46,19 +46,19 @@ function setupPlanet() {
     var imgList = [
         {
             name: "Mercury",
-            path: "assets/images/mercury.jpg"
+            path: "assets/images/mercury.png"
         },
         {
             name: "Venus",
-            path: "assets/images/venus.jpg"
+            path: "assets/images/venus.png"
         },
         {
             name: "Earth",
-            path: "assets/images/earth.jpg"
+            path: "assets/images/earth.png"
         },
         {
             name: "Mars",
-            path: "assets/images/mars.jpg"
+            path: "assets/images/mars.png"
         },
         {
             name: "Jupiter",
@@ -70,11 +70,11 @@ function setupPlanet() {
         },
         {
             name: "Uranus",
-            path: "assets/images/uranus.jpg"
+            path: "assets/images/uranus.png"
         },
         {
             name: "Neptune",
-            path: "assets/images/neptune.jpg"
+            path: "assets/images/neptune.png"
         }
     ];
 
@@ -287,4 +287,3 @@ particlesJS("particles-js", {
     "retina_detect": true
    
   });
-  
