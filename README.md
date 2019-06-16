@@ -4,7 +4,7 @@
 
 Welcome to Galactic Guesser! Each planet contains a value, and you must match your score to the goal. The catch is, you must match it perfectly...if you go over, you lose! 
 
-Want to try it out? [Play it here!](https://esarnb.github.io/unit-4-game/)
+Want to try it out? [Play it here!](https://esarnb.github.io/Galactic-Guesser/)
 
 ## Getting Started
 
